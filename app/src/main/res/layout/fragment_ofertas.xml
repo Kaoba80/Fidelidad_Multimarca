@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ofertas Destacadas"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorTextPrimary"
+                android:layout_centerVertical="true"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPuntosPill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:cardBackgroundColor="@color/colorSurface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/colorPrimary">
+
+                <TextView
+                    android:transitionName="animacion_pildora"
+                    android:id="@+id/tvSaldoPuntos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💎 1.250 pts"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"/>
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:paddingHorizontal="16dp">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerOfertas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayoutDots"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:background="@android:color/transparent"
+                app:tabBackground="@drawable/selector_dot"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="0dp"
+                app:tabRippleColor="@null"
+                app:tabPaddingStart="0dp"
+                app:tabPaddingEnd="0dp"
+                app:tabMinWidth="16dp"
+                app:tabMaxWidth="16dp"/>
+        </FrameLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardNormas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/colorTextSecondary">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Normas de uso y puntos"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTextPrimary"
+                        android:layout_centerVertical="true"/>
+                    <ImageView
+                        android:id="@+id/iconoDesplegable"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@android:drawable/arrow_down_float"
+                        app:tint="@color/colorTextPrimary"/>
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/tvTextoNormas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone"
+                    android:text="1. Los puntos caducan a los 6 meses.\n2. No son acumulables con otras promociones.\n3. Enseña tu código QR en la barra antes de pagar."
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gastar Puntos"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextPrimary"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+                <FrameLayout android:id="@+id/bgRinconguay" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion">
+                    <ImageView android:id="@+id/btnRinconguay" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="16dp" android:src="@drawable/elrinconguay" android:scaleType="fitCenter"/>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+                <FrameLayout android:id="@+id/bgOneLove" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion">
+                    <ImageView android:id="@+id/btnOneLove" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="16dp" android:src="@drawable/onelove" android:scaleType="fitCenter"/>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+                <FrameLayout android:id="@+id/bgRebelFlame" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion">
+                    <ImageView android:id="@+id/btnRebelFlame" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="16dp" android:src="@drawable/rebelflame" android:scaleType="fitCenter"/>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+                <FrameLayout android:id="@+id/bgLavapies" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion">
+                    <ImageView android:id="@+id/btnLavapies" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="16dp" android:src="@drawable/saunalava" android:scaleType="fitCenter"/>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+                <FrameLayout android:id="@+id/bgRing" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion">
+                    <ImageView android:id="@+id/btnRing" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="16dp" android:src="@drawable/thering" android:scaleType="fitCenter"/>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+                <FrameLayout android:id="@+id/bgToledo" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion">
+                    <ImageView android:id="@+id/btnToledo" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="16dp" android:src="@drawable/saunatoledo" android:scaleType="fitCenter"/>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

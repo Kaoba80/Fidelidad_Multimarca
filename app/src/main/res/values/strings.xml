@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Fidelidad Multimarca</string>
+    <string-array name="tipos_documento">
+        <item>DNI</item>
+        <item>NIE</item>
+        <item>Pasaporte</item>
+    </string-array>
+</resources>

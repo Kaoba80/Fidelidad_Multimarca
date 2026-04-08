@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    android:padding="16dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:transitionName="animacion_pildora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#1A0000"
+        app:strokeWidth="1dp"
+        app:strokeColor="#33FF0000"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:id="@+id/layoutPuntosContenedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="@drawable/bg_animacion"> <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TUS PUNTOS"
+            android:textColor="#E0E0E0"
+            android:textSize="12sp"
+            android:letterSpacing="0.3"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.250"
+                android:textColor="@android:color/white"
+                android:textSize="48sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnInstrucciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="@color/colorSurface">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ℹ️ Toca una columna para expandir. Toca el local para el QR."
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="13sp"
+            android:textAlignment="center"
+            android:padding="12dp"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:id="@+id/contenedorPaneles"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:id="@+id/colRestaurantes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:layout_marginEnd="6dp">
+
+            <TextView
+                android:id="@+id/tvTituloRestaurantes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Restaurantes"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:background="@drawable/bg_animacion"
+                android:paddingVertical="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <com.google.android.material.card.MaterialCardView android:id="@+id/cardRincon" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginBottom="8dp" app:cardCornerRadius="16dp" app:cardBackgroundColor="#1A0000" app:strokeWidth="0dp" android:clickable="true" android:focusable="true" android:foreground="?attr/selectableItemBackground">
+                <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                    <FrameLayout android:id="@+id/bgRincon" android:layout_width="match_parent" android:layout_height="match_parent">
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/elrinconguay_grad" android:scaleType="centerCrop"/>
+                        <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_degradado_texto"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="El Rincón Guay" android:textColor="@android:color/white" android:textSize="15sp" android:textStyle="bold" android:layout_gravity="center_vertical|end" android:layout_marginEnd="12dp"/>
+                    </FrameLayout>
+                    <FrameLayout android:id="@+id/logoRincon" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion" android:visibility="gone">
+                        <ImageView android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:src="@drawable/elrinconguay"/>
+                    </FrameLayout>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView android:id="@+id/cardOneLove" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginBottom="8dp" app:cardCornerRadius="16dp" app:cardBackgroundColor="#1A0000" app:strokeWidth="0dp" android:clickable="true" android:focusable="true" android:foreground="?attr/selectableItemBackground">
+                <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                    <FrameLayout android:id="@+id/bgOneLove" android:layout_width="match_parent" android:layout_height="match_parent">
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/onelove_grad" android:scaleType="centerCrop"/>
+                        <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_degradado_texto"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="One Love" android:textColor="@android:color/white" android:textSize="15sp" android:textStyle="bold" android:layout_gravity="center_vertical|end" android:layout_marginEnd="12dp"/>
+                    </FrameLayout>
+                    <FrameLayout android:id="@+id/logoOneLove" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion" android:visibility="gone">
+                        <ImageView android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:src="@drawable/onelove"/>
+                    </FrameLayout>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView android:id="@+id/cardRebel" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" app:cardCornerRadius="16dp" app:cardBackgroundColor="#1A0000" app:strokeWidth="0dp" android:clickable="true" android:focusable="true" android:foreground="?attr/selectableItemBackground">
+                <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                    <FrameLayout android:id="@+id/bgRebel" android:layout_width="match_parent" android:layout_height="match_parent">
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/rebelflame_grad" android:scaleType="centerCrop"/>
+                        <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_degradado_texto"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rebel Flame" android:textColor="@android:color/white" android:textSize="15sp" android:textStyle="bold" android:layout_gravity="center_vertical|end" android:layout_marginEnd="12dp"/>
+                    </FrameLayout>
+                    <FrameLayout android:id="@+id/logoRebel" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion" android:visibility="gone">
+                        <ImageView android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:src="@drawable/rebelflame"/>
+                    </FrameLayout>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#33FFFFFF"
+            android:layout_marginHorizontal="2dp"/>
+
+        <LinearLayout
+            android:id="@+id/colExperiencias"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="6dp">
+
+            <TextView
+                android:id="@+id/tvTituloExperiencias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Experiencias"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:background="@drawable/bg_animacion"
+                android:paddingVertical="8dp"
+                android:layout_marginBottom="8dp"/>
+
+            <com.google.android.material.card.MaterialCardView android:id="@+id/cardLavapies" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginBottom="8dp" app:cardCornerRadius="16dp" app:cardBackgroundColor="#1A0000" app:strokeWidth="0dp" android:clickable="true" android:focusable="true" android:foreground="?attr/selectableItemBackground">
+                <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                    <FrameLayout android:id="@+id/bgLavapies" android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="gone">
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/saunalava_grad" android:scaleType="centerCrop"/>
+                        <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_degradado_texto"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sauna Lavapiés" android:textColor="@android:color/white" android:textSize="15sp" android:textStyle="bold" android:layout_gravity="center_vertical|end" android:layout_marginEnd="12dp"/>
+                    </FrameLayout>
+                    <FrameLayout android:id="@+id/logoLavapies" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion">
+                        <ImageView android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:src="@drawable/saunalava"/>
+                    </FrameLayout>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView android:id="@+id/cardRing" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginBottom="8dp" app:cardCornerRadius="16dp" app:cardBackgroundColor="#1A0000" app:strokeWidth="0dp" android:clickable="true" android:focusable="true" android:foreground="?attr/selectableItemBackground">
+                <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                    <FrameLayout android:id="@+id/bgRing" android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="gone">
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/theringprivate_grad" android:scaleType="centerCrop"/>
+                        <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_degradado_texto"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="The Private Ring" android:textColor="@android:color/white" android:textSize="15sp" android:textStyle="bold" android:layout_gravity="center_vertical|end" android:layout_marginEnd="12dp"/>
+                    </FrameLayout>
+                    <FrameLayout android:id="@+id/logoRing" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion">
+                        <ImageView android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:src="@drawable/thering"/>
+                    </FrameLayout>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView android:id="@+id/cardToledo" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" app:cardCornerRadius="16dp" app:cardBackgroundColor="#1A0000" app:strokeWidth="0dp" android:clickable="true" android:focusable="true" android:foreground="?attr/selectableItemBackground">
+                <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                    <FrameLayout android:id="@+id/bgToledo" android:layout_width="match_parent" android:layout_height="match_parent" android:visibility="gone">
+                        <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/saunatoledo_grad" android:scaleType="centerCrop"/>
+                        <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_degradado_texto"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sauna Toledo" android:textColor="@android:color/white" android:textSize="15sp" android:textStyle="bold" android:layout_gravity="center_vertical|end" android:layout_marginEnd="12dp"/>
+                    </FrameLayout>
+                    <FrameLayout android:id="@+id/logoToledo" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_animacion">
+                        <ImageView android:layout_width="50dp" android:layout_height="50dp" android:layout_gravity="center" android:src="@drawable/saunatoledo"/>
+                    </FrameLayout>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

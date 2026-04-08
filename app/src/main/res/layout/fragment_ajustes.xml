@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:paddingBottom="80dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Configuración"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextPrimary"
+            android:layout_marginBottom="16dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/colorPrimary">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tvNombreUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre de Usuario"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvEmailUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="usuario@fidelidad.com"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="14sp"
+                    android:layout_below="@id/tvNombreUsuario"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:id="@+id/tvEditarPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Editar Perfil"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/tvEmailUsuario"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="16dp"
+                    android:padding="4dp"/>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardChatAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/colorPrimary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Chat con Administrador"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/ic_dialog_email"
+                    app:tint="@color/colorTextPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/colorPrimary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTerminos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="◉ Términos y Condiciones"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="16sp"
+                    android:paddingVertical="12dp"/>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#33888888"/>
+
+                <TextView
+                    android:id="@+id/tvAvisoLegal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="◉ Aviso Legal"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="16sp"
+                    android:paddingVertical="12dp"/>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#33888888"/>
+
+                <TextView
+                    android:id="@+id/tvFaq"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="◉ Preguntas Frecuentes (FAQ)"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="16sp"
+                    android:paddingVertical="12dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEliminarCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Eliminar Cuenta"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="16dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/colorPrimary"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/> </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/colorBackground"
+    android:fitsSystemWindows="true"> <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Términos y Condiciones"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:textColor="@color/colorTextPrimary"
+    android:layout_marginBottom="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTextSecondary"
+            android:text="Aquí irá todo el texto legal de las condiciones de uso de la app de fidelidad. \n\nEl usuario debe leer esto antes de poder continuar..." />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnAceptarCondiciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="He leído y acepto"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
