@@ -18,7 +18,6 @@ class PuntosFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Recibe la transformación de la píldora de forma fluida
         sharedElementEnterTransition = ChangeBounds().apply {
             duration = 400
         }
@@ -34,27 +33,31 @@ class PuntosFragment : Fragment() {
         val layoutPuntosContenedor = view.findViewById<View>(R.id.layoutPuntosContenedor)
         layoutPuntosContenedor?.transitionName = "animacion_pildora"
 
-        // EFECTO ONDA / GOTA (Circular Reveal) AL ENTRAR
+        // Efecto Circular Reveal al entrar
         view.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
             override fun onLayoutChange(v: View, left: Int, top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
                 v.removeOnLayoutChangeListener(this)
                 val cx = v.width / 2
                 val cy = 0
                 val radioFinal = hypot(v.width.toDouble(), v.height.toDouble()).toFloat()
-
                 try {
                     val anim = ViewAnimationUtils.createCircularReveal(v, cx, cy, 0f, radioFinal)
                     anim.duration = 600
                     anim.start()
-                } catch (e: Exception) {
-                    // Por si la vista se cierra antes de tiempo, evitar crashes
-                }
+                } catch (e: Exception) { }
             }
         })
 
-        // Botón de instrucciones (opcional o de recordatorio)
+        // --- AQUÍ ESTÁ LA MAGIA DEL BOTÓN CENTRAL ---
+        val circuloCentralQr = view.findViewById<MaterialCardView>(R.id.circuloCentralQr)
+        circuloCentralQr.setOnClickListener {
+            it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+            mostrarPopupQR("Tu Código QR")
+        }
+
+        // Botón de instrucciones
         view.findViewById<MaterialCardView>(R.id.btnInstrucciones).setOnClickListener {
-            Toast.makeText(requireContext(), "Toca nuestro logo central en la pantalla para abrir su código QR.", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Toca nuestro logo central para abrir el QR.", Toast.LENGTH_SHORT).show()
         }
     }
 
