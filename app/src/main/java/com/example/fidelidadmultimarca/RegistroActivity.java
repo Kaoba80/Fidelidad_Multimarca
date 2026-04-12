@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -18,12 +16,10 @@ public class RegistroActivity extends AppCompatActivity {
 
     private CheckBox cbCondiciones;
 
-    // Este "Lanzador" abre la pantalla de condiciones y escucha qué pasa al volver
     private final ActivityResultLauncher<Intent> condicionesLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 if (result.getResultCode() == Activity.RESULT_OK) {
-                    // Si el usuario aceptó en la otra pantalla, habilitamos y marcamos el checkbox
                     cbCondiciones.setEnabled(true);
                     cbCondiciones.setChecked(true);
                 }
@@ -42,25 +38,19 @@ public class RegistroActivity extends AppCompatActivity {
         animationDrawable.setExitFadeDuration(4000);
         animationDrawable.start();
 
-        // Configurar las opciones del desplegable (DNI, NIE, Pasaporte)
-        AutoCompleteTextView spinnerTipoDoc = findViewById(R.id.spinnerTipoDoc);
-        String[] tiposDoc = getResources().getStringArray(R.array.tipos_documento);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, tiposDoc);
-        spinnerTipoDoc.setAdapter(adapter);
-
-        // Enlazar vistas de navegación
+        // Enlazar vistas de navegación y control
         TextView tvVolverLogin = findViewById(R.id.tvVolverLogin);
         TextView tvLeerCondiciones = findViewById(R.id.tvLeerCondiciones);
         cbCondiciones = findViewById(R.id.cbCondiciones);
         Button btnRegistrarse = findViewById(R.id.btnRegistrarse);
 
-        // Botón volver al Login (finish destruye esta pantalla y revela el login que estaba debajo)
+        // Botón volver al Login
         tvVolverLogin.setOnClickListener(v -> finish());
 
-        // Botón de Registrarse (por ahora solo volvemos al login simulando que terminó)
+        // Botón de Registrarse
         btnRegistrarse.setOnClickListener(v -> finish());
 
-        // Texto para abrir las Condiciones usando el lanzador que creamos arriba
+        // Texto para abrir las Condiciones
         tvLeerCondiciones.setOnClickListener(v -> {
             Intent intent = new Intent(RegistroActivity.this, CondicionesActivity.class);
             condicionesLauncher.launch(intent);

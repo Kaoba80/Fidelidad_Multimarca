@@ -43,7 +43,7 @@
                 android:id="@+id/etUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="E-Mail o DNI"
+                android:hint="E-Mail"
                 android:inputType="text"
                 android:textColor="@color/colorTextPrimary" />
         </com.google.android.material.textfield.TextInputLayout>
