@@ -52,35 +52,9 @@ class PuntosFragment : Fragment() {
             }
         })
 
-        // Referencias a todas las tarjetas nuevas
-        val cardRincon = view.findViewById<MaterialCardView>(R.id.cardRincon)
-        val cardLavapies = view.findViewById<MaterialCardView>(R.id.cardLavapies)
-        val cardOneLove = view.findViewById<MaterialCardView>(R.id.cardOneLove)
-        val cardRing = view.findViewById<MaterialCardView>(R.id.cardRing)
-        val cardRebel = view.findViewById<MaterialCardView>(R.id.cardRebel)
-        val cardToledo = view.findViewById<MaterialCardView>(R.id.cardToledo)
-
-        // Mapeo directo de cada tarjeta al nombre de su popup QR
-        val tarjetasLocales = mapOf(
-            cardRincon to "El Rincón Guay",
-            cardLavapies to "Sauna Lavapiés",
-            cardOneLove to "One Love",
-            cardRing to "The Private Ring",
-            cardRebel to "Rebel Flame",
-            cardToledo to "Sauna Toledo"
-        )
-
-        // Asignamos el clic a cada una para mostrar directamente el QR
-        for ((card, nombreLocal) in tarjetasLocales) {
-            card.setOnClickListener {
-                it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-                mostrarPopupQR(nombreLocal)
-            }
-        }
-
         // Botón de instrucciones (opcional o de recordatorio)
         view.findViewById<MaterialCardView>(R.id.btnInstrucciones).setOnClickListener {
-            Toast.makeText(requireContext(), "Toca cualquier local en la pantalla para abrir su código QR.", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Toca nuestro logo central en la pantalla para abrir su código QR.", Toast.LENGTH_LONG).show()
         }
     }
 
