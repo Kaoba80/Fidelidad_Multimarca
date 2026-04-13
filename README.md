@@ -1,6 +1,6 @@
 # Manual de Usuario: App de Fidelidad Multimarca (El Rincón Guay & Asociados)
 
-Bienvenido al manual de usuario oficial de tu aplicación de fidelidad. Esta guía está diseñada para ayudarte a navegar por todas las funciones de la app, desde la creación de tu cuenta hasta el escaneo de tickets y el canjeo de tus puntos por recompensas exclusivas en nuestros locales asociados (El Rincón Guay, OneLove, Rebel Flame, Sauna Lavapiés, The Ring Private y FT).
+Bienvenido al manual de usuario oficial de tu aplicación de fidelidad. Esta guía está diseñada para ayudarte a navegar por todas las funciones de la app, desde la creación de tu cuenta hasta el escaneo de tickets y el canjeo de tus puntos por recompensas exclusivas en nuestros locales asociados (El Rincón Guay, OneLove, Rebel Flame, Sauna Lavapiés, The Ring Private y Sauna PT).
 
 ---
 
