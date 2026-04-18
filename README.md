@@ -101,72 +101,64 @@ Si tienes algún problema con tus puntos o un error en la app, pulsa en el botó
 ### 5.4 Eliminar Cuenta
 Si deseas darte de baja definitivamente del programa de fidelidad y borrar todos tus datos y puntos de los servidores, desplázate hasta el final de la pantalla de Configuración y pulsa el botón rojo **"ELIMINAR CUENTA"**. Ten en cuenta que esta acción es irreversible.
 
-1. PARTE DE PRESENTACIÓN
-Sobre la aplicación
-Fidelidad Multimarca es una solución digital diseñada para unificar la experiencia de recompensas en una red de locales exclusivos (El Rincón Guay, OneLove, Rebel Flame, Sauna Lavapiés, The Ring Private y FT). La app elimina la necesidad de tarjetas de puntos físicas, permitiendo a los clientes gestionar su fidelidad de forma rápida y moderna.
+---
 
-Usos principales:
+# 1. PARTE DE PRESENTACIÓN
 
-Acumulación de puntos mediante el escaneo de tickets de consumición.
+### Sobre la aplicación
+**Fidelidad Multimarca** es una solución digital diseñada para unificar la experiencia de recompensas en una red de locales exclusivos (El Rincón Guay, OneLove, Rebel Flame, Sauna Lavapiés, The Ring Private y FT). La app elimina la necesidad de tarjetas de puntos físicas, permitiendo a los clientes gestionar su fidelidad de forma rápida y moderna.
 
-Consulta de saldo en tiempo real.
+**Usos principales:**
+* Acumulación de puntos mediante el escaneo de tickets de consumición.
+* Consulta de saldo en tiempo real.
+* Canjeo de puntos por productos exclusivos, bebidas o experiencias en los locales asociados.
+* Comunicación directa con el equipo de soporte.
 
-Canjeo de puntos por productos exclusivos, bebidas o experiencias en los locales asociados.
+### Historia de Usuario
+> *"Como cliente habitual de El Rincón Guay, quiero una forma fácil de acumular puntos cada vez que consumo sin tener que llevar una tarjeta de cartón en la cartera, para poder conseguir mi camiseta exclusiva o una copa gratis simplemente enseñando mi móvil en la barra."*
 
-Comunicación directa con el equipo de soporte.
+**Programador Principal:** > **Peter Tapia**
 
-Historia de Usuario
-"Como cliente habitual de El Rincón Guay, quiero una forma fácil de acumular puntos cada vez que consumo sin tener que llevar una tarjeta de cartón en la cartera, para poder conseguir mi camiseta exclusiva o una copa gratis simplemente enseñando mi móvil en la barra."
+---
 
-Programador Principal: > Peter Tapia
+# 2. MANUAL DE USUARIO Y CASOS DE USO
 
-2. MANUAL DE USUARIO Y CASOS DE USO
-(Aquí se incluiría el manual detallado previamente generado, seguido de los casos de uso prácticos)
+*(Aquí se incluiría el manual detallado previamente generado, seguido de los casos de uso prácticos)*
 
-Casos de Uso Destacados
-Caso de Uso 1: Escanear un ticket para acumular puntos
+### Casos de Uso Destacados
 
-Situación: El usuario acaba de consumir en un local y recibe un ticket con un código QR.
+**Caso de Uso 1: Escanear un ticket para acumular puntos**
+* **Situación:** El usuario acaba de consumir en un local y recibe un ticket con un código QR.
+* **Acción:** Abre la app, pulsa el botón central de la cámara y escanea el código.
+* **Resultado:** El sistema valida el ticket y los puntos se suman automáticamente al saldo del perfil.
 
-Acción: Abre la app, pulsa el botón central de la cámara y escanea el código.
+**Caso de Uso 2: Canjear puntos por una recompensa física**
+* **Situación:** El usuario tiene puntos suficientes para un premio (ej. una camiseta).
+* **Acción:** Selecciona el local en la sección de ofertas, elige el premio y pulsa "Canjear". Luego, genera su código QR personal pulsando el logo central en su perfil.
+* **Resultado:** El personal del local escanea el QR del usuario para confirmar la transacción y entrega el premio.
 
-Resultado: El sistema valida el ticket y los puntos se suman automáticamente al saldo del perfil.
+---
 
-Caso de Uso 2: Canjear puntos por una recompensa física
+# 3. ASPECTOS TÉCNICOS
 
-Situación: El usuario tiene puntos suficientes para un premio (ej. una camiseta).
-
-Acción: Selecciona el local en la sección de ofertas, elige el premio y pulsa "Canjear". Luego, genera su código QR personal pulsando el logo central en su perfil.
-
-Resultado: El personal del local escanea el QR del usuario para confirmar la transacción y entrega el premio.
-
-3. ASPECTOS TÉCNICOS
 Esta sección detalla las especificaciones de desarrollo y los requisitos del sistema para el correcto funcionamiento de la aplicación.
 
-Lenguajes de Programación
+### Lenguajes de Programación
 La aplicación ha sido desarrollada utilizando una arquitectura híbrida y moderna empleando:
+* **Java**
+* **Kotlin**
 
-Java
+### Funciones Relevantes Comentadas
+* **Generar QR Personal:** Función encargada de cifrar el ID del usuario en un código QR dinámico. Es la herramienta de identificación esencial para que los establecimientos puedan validar los canjeos de forma segura.
+* **Activar la Cámara:** Módulo que integra la API de la cámara del dispositivo para permitir el escaneo de códigos QR de tickets. Incluye funciones de autoenfoque para garantizar la lectura correcta en condiciones de poca luz (discotecas o bares).
 
-Kotlin
+### Plataforma y Equipos
+* **Dispositivos:** Pensada y optimizada para **teléfonos móviles estándar**.
+* **Versión de Android:** Compilado para **Android 36** (según configuración en Android Studio).
 
-Funciones Relevantes Comentadas
-Generar QR Personal: Función encargada de cifrar el ID del usuario en un código QR dinámico. Es la herramienta de identificación esencial para que los establecimientos puedan validar los canjeos de forma segura.
-
-Activar la Cámara: Módulo que integra la API de la cámara del dispositivo para permitir el escaneo de códigos QR de tickets. Incluye funciones de autoenfoque para garantizar la lectura correcta en condiciones de poca luz (discotecas o bares).
-
-Plataforma y Equipos
-Dispositivos: Pensada y optimizada para teléfonos móviles estándar.
-
-Versión de Android: Compilado para Android 36 (según configuración en Android Studio).
-
-Requisitos Mínimos del Dispositivo
+### Requisitos Mínimos del Dispositivo
 Para asegurar una experiencia de usuario fluida, el dispositivo debe cumplir con lo siguiente:
-
-Cámara Trasera: Requisito indispensable para la funcionalidad de escaneo de tickets.
-
-Conexión a Internet: Necesaria para la sincronización de puntos con el servidor en tiempo real.
-
-Memoria: Espacio mínimo de almacenamiento para la caché de imágenes de los locales y ofertas.
-
-Sistema Operativo: Dispositivo compatible con el SDK de Android especificado.
+1.  **Cámara Trasera:** Requisito indispensable para la funcionalidad de escaneo de tickets.
+2.  **Conexión a Internet:** Necesaria para la sincronización de puntos con el servidor en tiempo real.
+3.  **Memoria:** Espacio mínimo de almacenamiento para la caché de imágenes de los locales y ofertas.
+4.  **Sistema Operativo:** Dispositivo compatible con el SDK de Android especificado.
