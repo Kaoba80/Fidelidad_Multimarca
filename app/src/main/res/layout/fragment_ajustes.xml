@@ -161,16 +161,5 @@
             android:layout_height="0dp"
             android:layout_weight="1"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnEliminarCuenta"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Eliminar Cuenta"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:cornerRadius="16dp"
-            app:strokeWidth="2dp"
-            app:strokeColor="@color/colorPrimary"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/> </LinearLayout>
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>
