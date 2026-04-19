@@ -1,6 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fillViewport="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preguntas Frecuentes"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextPrimary"
+            android:layout_marginBottom="24dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardFaq1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="@color/colorSurface">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="¿Cómo acumulo y canjeo mis puntos?"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="16sp"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <LinearLayout
+                    android:id="@+id/layoutRespuesta1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_marginTop="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Al visitar cualquiera de nuestros locales asociados, abre la aplicación y pulsa el logo central para mostrar tu código QR. El personal lo escaneará para sumar tus puntos correspondientes.\n\nPara canjearlos por descuentos o premios, simplemente avisa al personal antes de realizar tu pago y escanea tu QR."
+                        android:textColor="@color/colorTextSecondary"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardFaq2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="@color/colorSurface">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="¿Caducan mis puntos o se pueden transferir?"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="16sp"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <LinearLayout
+                    android:id="@+id/layoutRespuesta2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_marginTop="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tus puntos no caducan siempre y cuando registres al menos una visita en un periodo de 12 meses. Si superas ese tiempo sin actividad, el contador se reiniciará a cero.\n\nLos puntos son estrictamente personales e intransferibles, ya que están asociados de forma única a tu correo electrónico."
+                        android:textColor="@color/colorTextSecondary"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardFaqEliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="#FFF0F0"
+            app:strokeWidth="1dp"
+            app:strokeColor="#FF0000">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="¿Cómo eliminar mi cuenta definitivamente?"
+                    android:textStyle="bold"
+                    android:textColor="#CC0000"
+                    android:textSize="16sp"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <LinearLayout
+                    android:id="@+id/layoutRespuestaEliminar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_marginTop="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Atención: Eliminar tu cuenta es una acción irreversible. Se borrarán todos tus datos personales de nuestros servidores y perderás todos los puntos y recompensas acumuladas de manera permanente.\n\nSi estás completamente seguro de esta decisión, puedes proceder pulsando el botón a continuación:"
+                        android:textColor="#333333"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="16dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEliminarCuentaFaq"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Eliminar mi cuenta y mis datos"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="#FF0000"
+                        app:cornerRadius="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
