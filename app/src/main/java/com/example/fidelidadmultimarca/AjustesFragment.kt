@@ -50,12 +50,18 @@ class AjustesFragment : Fragment() {
 
         // 4. Abrir la nueva pantalla de Preguntas Frecuentes (FAQ)
         tvFaq.setOnClickListener {
-            // Reemplazamos el fragmento actual por el de las FAQ.
-            // NOTA: "R.id.fragment_container" es el ID estándar,
-            // si tu MainActivity usa otro ID para mostrar fragmentos, cámbialo aquí.
+            // Buscamos el ID del contenedor donde está "viviendo" este fragmento actualmente
+            val containerId = (view.parent as ViewGroup).id
+
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, FaqFragment())
-                .addToBackStack(null) // Esto permite volver atrás al pulsar el botón de retroceso
+                .setCustomAnimations(
+                    android.R.anim.fade_in,
+                    android.R.anim.fade_out,
+                    android.R.anim.fade_in,
+                    android.R.anim.fade_out
+                )
+                .replace(containerId, FaqFragment())
+                .addToBackStack(null)
                 .commit()
         }
     }
