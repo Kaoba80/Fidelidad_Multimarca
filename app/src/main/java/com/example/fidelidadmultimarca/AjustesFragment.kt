@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth // ¡No olvides esta importación!
 
 class AjustesFragment : Fragment() {
 
@@ -23,6 +25,7 @@ class AjustesFragment : Fragment() {
         val tvTerminos = view.findViewById<TextView>(R.id.tvTerminos)
         val tvAvisoLegal = view.findViewById<TextView>(R.id.tvAvisoLegal)
         val tvFaq = view.findViewById<TextView>(R.id.tvFaq)
+        val btnCerrarSesion = view.findViewById<Button>(R.id.btnCerrarSesion)
 
         // 1. Editar Perfil
         tvEditarPerfil.setOnClickListener {
@@ -41,21 +44,31 @@ class AjustesFragment : Fragment() {
             Toast.makeText(requireContext(), "Abriendo Aviso Legal...", Toast.LENGTH_SHORT).show()
         }
 
-        // 4. Abrir la pantalla de Preguntas Frecuentes (FAQ)
+        // 4. Preguntas Frecuentes (FAQ)
         tvFaq.setOnClickListener {
-            // Detectamos el ID del contenedor actual de forma dinámica
             val containerId = (view.parent as View).id
-
             parentFragmentManager.beginTransaction()
-                .setCustomAnimations(
-                    android.R.anim.fade_in,
-                    android.R.anim.fade_out,
-                    android.R.anim.fade_in,
-                    android.R.anim.fade_out
-                )
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out, android.R.anim.fade_in, android.R.anim.fade_out)
                 .replace(containerId, FaqFragment())
-                .addToBackStack(null) // Esto permite volver a Ajustes al dar atrás
+                .addToBackStack(null)
                 .commit()
+        }
+
+        // 5. LÓGICA DE CERRAR SESIÓN
+        btnCerrarSesion.setOnClickListener {
+            // Cerramos sesión en Firebase
+            FirebaseAuth.getInstance().signOut()
+
+            // Creamos el Intent para ir al Login
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+
+            // Estas flags son CRÍTICAS: borran todo el historial de pantallas
+            // para que el usuario no pueda volver al Dashboard pulsando el botón "atrás" del móvil
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+            startActivity(intent)
+
+            Toast.makeText(requireContext(), "Sesión cerrada correctamente", Toast.LENGTH_SHORT).show()
         }
     }
 }

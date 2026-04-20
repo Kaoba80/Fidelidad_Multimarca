@@ -164,5 +164,18 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:text="Cerrar Sesión"
+            android:textColor="@android:color/white"
+            app:backgroundTint="#D32F2F"
+            app:cornerRadius="16dp"
+            app:icon="@android:drawable/ic_lock_power_off"
+            app:iconTint="@android:color/white"
+            app:iconGravity="textStart"/>
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
