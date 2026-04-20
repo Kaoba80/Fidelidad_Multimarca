@@ -64,7 +64,7 @@
             android:layout_marginBottom="35dp" app:fabCustomSize="65dp"
             app:maxImageSize="32dp"
             android:src="@android:drawable/ic_menu_camera"
-            app:backgroundTint="#FF0033"
+            app:backgroundTint="#D32F2F"
             app:tint="@android:color/white"
             app:elevation="6dp"
             app:borderWidth="0dp"
