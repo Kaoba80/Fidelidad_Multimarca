@@ -24,15 +24,7 @@ class MainActivity : AppCompatActivity() {
         // 1. Efecto "Respiración" futurista
         val animLatido = ObjectAnimator.ofPropertyValuesHolder(
             btnAlienCentral,
-            PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.08f),
-            PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.08f)
-        ).apply {
-            duration = 1500
-            repeatCount = ObjectAnimator.INFINITE
-            repeatMode = ObjectAnimator.REVERSE
-            interpolator = AccelerateDecelerateInterpolator()
-            start()
-        }
+        )
 
         // 2. CLIC EN EL ALIEN: ABRIR LA CÁMARA
         btnAlienCentral.setOnClickListener {
