@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1080832711221",
+    "project_id": "fidelidad-multimarca",
+    "storage_bucket": "fidelidad-multimarca.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080832711221:android:1209d9965f04b805936f7c",
+        "android_client_info": {
+          "package_name": "com.example.fidelidadmultimarca"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDp4mFmPFeD1FUs93g4KPY0UEKNyUASFQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
