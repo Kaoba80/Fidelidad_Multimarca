@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:visibility="gone"
-                    android:text="1. Los puntos caducan a los 6 meses.\n2. No son acumulables con otras promociones.\n3. Enseña tu código QR en la barra antes de pagar."
+                    android:text="1. Tus puntos caducan 12 meses después de la fecha en que los obtuviste.\n2. No puedes usar tus puntos junto con otras promociones o descuentos en la misma compra.\n3. Muestra tu código QR en la barra antes de realizar el pago para acumular o usar puntos.\n4. Mas info en 'Ajustes>FAQ' "
                     android:textColor="@color/colorTextSecondary"
                     android:textSize="14sp"/>
             </LinearLayout>
