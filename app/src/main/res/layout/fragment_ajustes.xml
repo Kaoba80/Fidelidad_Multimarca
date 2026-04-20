@@ -73,7 +73,6 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardChatAdmin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -86,24 +85,33 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Chat con Administrador"
+                    android:text="Atención al Cliente"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@android:drawable/ic_dialog_email"
-                    app:tint="@color/colorTextPrimary"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📞 +34 600 000 000"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="14sp"
+                    android:paddingVertical="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✉️ soporte@fidelidad.com"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="14sp"
+                    android:paddingVertical="4dp"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -155,11 +163,6 @@
                     android:paddingVertical="12dp"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
