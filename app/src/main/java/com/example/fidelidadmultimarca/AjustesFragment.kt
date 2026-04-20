@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.card.MaterialCardView
 
 class AjustesFragment : Fragment() {
 
@@ -19,9 +18,8 @@ class AjustesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Enlazar vistas (El botón de eliminar ya no está aquí)
+        // Enlazar vistas
         val tvEditarPerfil = view.findViewById<TextView>(R.id.tvEditarPerfil)
-        val cardChatAdmin = view.findViewById<MaterialCardView>(R.id.cardChatAdmin)
         val tvTerminos = view.findViewById<TextView>(R.id.tvTerminos)
         val tvAvisoLegal = view.findViewById<TextView>(R.id.tvAvisoLegal)
         val tvFaq = view.findViewById<TextView>(R.id.tvFaq)
@@ -32,26 +30,21 @@ class AjustesFragment : Fragment() {
             startActivity(intent)
         }
 
-        // 2. Chat con Admin
-        cardChatAdmin.setOnClickListener {
-            val intent = Intent(requireContext(), ChatAdminActivity::class.java)
-            startActivity(intent)
-        }
-
-        // 3. Legales
+        // 2. Términos y Condiciones
         tvTerminos.setOnClickListener {
             val intent = Intent(requireContext(), CondicionesActivity::class.java)
             startActivity(intent)
         }
 
+        // 3. Aviso Legal
         tvAvisoLegal.setOnClickListener {
             Toast.makeText(requireContext(), "Abriendo Aviso Legal...", Toast.LENGTH_SHORT).show()
         }
 
-        // 4. Abrir la nueva pantalla de Preguntas Frecuentes (FAQ)
+        // 4. Abrir la pantalla de Preguntas Frecuentes (FAQ)
         tvFaq.setOnClickListener {
-            // Buscamos el ID del contenedor donde está "viviendo" este fragmento actualmente
-            val containerId = (view.parent as ViewGroup).id
+            // Detectamos el ID del contenedor actual de forma dinámica
+            val containerId = (view.parent as View).id
 
             parentFragmentManager.beginTransaction()
                 .setCustomAnimations(
@@ -61,7 +54,7 @@ class AjustesFragment : Fragment() {
                     android.R.anim.fade_out
                 )
                 .replace(containerId, FaqFragment())
-                .addToBackStack(null)
+                .addToBackStack(null) // Esto permite volver a Ajustes al dar atrás
                 .commit()
         }
     }
