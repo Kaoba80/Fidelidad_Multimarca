@@ -66,6 +66,25 @@ class PuntosFragment : Fragment() {
         view.findViewById<MaterialCardView>(R.id.btnInstrucciones).setOnClickListener {
             Toast.makeText(requireContext(), "Toca nuestro logo central para abrir el QR.", Toast.LENGTH_SHORT).show()
         }
+        // ... tu código anterior ...
+
+// Referencia a los nuevos botones
+        val btnVolverAtras = view.findViewById<ImageView>(R.id.btnVolverAtras)
+        val btnAbrirHistorial = view.findViewById<ImageView>(R.id.btnAbrirHistorial)
+
+        btnVolverAtras?.setOnClickListener {
+            // Aquí cierras el fragmento actual o vuelves al inicio
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
+        btnAbrirHistorial?.setOnClickListener {
+            // Aquí lanzamos el nuevo fragmento o actividad de Historial
+            Toast.makeText(requireContext(), "Abriendo Historial...", Toast.LENGTH_SHORT).show()
+            // Ejemplo:
+            // findNavController().navigate(R.id.action_puntosFragment_to_historialFragment)
+        }
+
+// ...
     }
 
     private fun mostrarPopupQR(nombreLocal: String) {
@@ -103,6 +122,7 @@ class PuntosFragment : Fragment() {
         dialog.show()
     }
 
+
     // Función que transforma un texto en una imagen QR (Bitmap) de 500x500 píxeles
     private fun generarQR(contenido: String): Bitmap? {
         return try {
@@ -128,4 +148,5 @@ class PuntosFragment : Fragment() {
             null
         }
     }
+
 }
