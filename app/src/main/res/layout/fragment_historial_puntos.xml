@@ -70,7 +70,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="6.850"
+                    android:text="1.250"
                     android:textColor="#8B0000"
                     android:textSize="32sp"
                     android:textStyle="bold"/>

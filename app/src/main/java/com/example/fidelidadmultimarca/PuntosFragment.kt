@@ -40,7 +40,7 @@ class PuntosFragment : Fragment() {
         val layoutPuntosContenedor = view.findViewById<View>(R.id.layoutPuntosContenedor)
         layoutPuntosContenedor?.transitionName = "animacion_pildora"
 
-        // Efecto Circular Reveal al entrar
+        // Efecto Circular Reveal
         view.addOnLayoutChangeListener(object : View.OnLayoutChangeListener {
             override fun onLayoutChange(v: View, left: Int, top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
                 v.removeOnLayoutChangeListener(this)
@@ -55,36 +55,31 @@ class PuntosFragment : Fragment() {
             }
         })
 
-        // --- AQUÍ ESTÁ LA MAGIA DEL BOTÓN CENTRAL ---
+        // --- BOTÓN CENTRAL QR ---
         val circuloCentralQr = view.findViewById<MaterialCardView>(R.id.circuloCentralQr)
-        circuloCentralQr.setOnClickListener {
+        circuloCentralQr?.setOnClickListener {
             it.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
             mostrarPopupQR("Fidelidad Multimarca")
         }
 
-        // Botón de instrucciones
-        view.findViewById<MaterialCardView>(R.id.btnInstrucciones).setOnClickListener {
-            Toast.makeText(requireContext(), "Toca nuestro logo central para abrir el QR.", Toast.LENGTH_SHORT).show()
-        }
-        // ... tu código anterior ...
-
-// Referencia a los nuevos botones
+        // --- BOTONES CABECERA ---
         val btnVolverAtras = view.findViewById<ImageView>(R.id.btnVolverAtras)
         val btnAbrirHistorial = view.findViewById<ImageView>(R.id.btnAbrirHistorial)
 
         btnVolverAtras?.setOnClickListener {
-            // Aquí cierras el fragmento actual o vuelves al inicio
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
         btnAbrirHistorial?.setOnClickListener {
-            // Aquí lanzamos el nuevo fragmento o actividad de Historial
-            Toast.makeText(requireContext(), "Abriendo Historial...", Toast.LENGTH_SHORT).show()
-            // Ejemplo:
-            // findNavController().navigate(R.id.action_puntosFragment_to_historialFragment)
-        }
+            // SOLUCIÓN DEFINITIVA AL ERROR ROJO:
+            // Usamos (parent.parent as View).id para sacar el ID del contenedor dinámicamente
+            val containerId = (view.parent as ViewGroup).id
 
-// ...
+            parentFragmentManager.beginTransaction()
+                .replace(containerId, HistorialPuntosFragment())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     private fun mostrarPopupQR(nombreLocal: String) {
@@ -93,60 +88,37 @@ class PuntosFragment : Fragment() {
         dialog.setContentView(dialogView)
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
-        dialogView.findViewById<TextView>(R.id.tvNombreLocalQr).text = nombreLocal
-
-        // --- LÓGICA DEL CÓDIGO QR DINÁMICO ---
+        dialogView.findViewById<TextView>(R.id.tvNombreLocalQr)?.text = nombreLocal
         val ivCodigoQR = dialogView.findViewById<ImageView>(R.id.ivCodigoQR)
 
-        // 1. Obtener datos únicos (ID de usuario de Firebase + Hora exacta actual)
         val usuario = FirebaseAuth.getInstance().currentUser
         val uidUsuario = usuario?.uid ?: "UsuarioInvitado"
-        val timestamp = System.currentTimeMillis() // Esto cambia cada milisegundo
-
-        // 2. Crear el contenido secreto del QR
+        val timestamp = System.currentTimeMillis()
         val contenidoQrDinamico = "FIDELIDAD|UID:$uidUsuario|TIME:$timestamp"
 
-        // 3. Generar la imagen y ponerla en pantalla
         val bitmapQR = generarQR(contenidoQrDinamico)
         if (bitmapQR != null) {
-            ivCodigoQR.setImageBitmap(bitmapQR)
-        } else {
-            Toast.makeText(requireContext(), "Error al generar el QR", Toast.LENGTH_SHORT).show()
+            ivCodigoQR?.setImageBitmap(bitmapQR)
         }
-        // --------------------------------------
 
-        dialogView.findViewById<MaterialButton>(R.id.btnCerrarQr).setOnClickListener { dialog.dismiss() }
-
+        dialogView.findViewById<MaterialButton>(R.id.btnCerrarQr)?.setOnClickListener { dialog.dismiss() }
         dialogView.alpha = 0f
         dialogView.animate().alpha(1f).setDuration(200).start()
         dialog.show()
     }
 
-
-    // Función que transforma un texto en una imagen QR (Bitmap) de 500x500 píxeles
     private fun generarQR(contenido: String): Bitmap? {
         return try {
-            val bitMatrix = MultiFormatWriter().encode(
-                contenido,
-                BarcodeFormat.QR_CODE,
-                500, // Ancho
-                500  // Alto
-            )
+            val bitMatrix = MultiFormatWriter().encode(contenido, BarcodeFormat.QR_CODE, 500, 500)
             val width = bitMatrix.width
             val height = bitMatrix.height
             val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
-
-            // Colorear los píxeles (Negro para el código, Blanco para el fondo)
             for (x in 0 until width) {
                 for (y in 0 until height) {
                     bitmap.setPixel(x, y, if (bitMatrix.get(x, y)) Color.BLACK else Color.WHITE)
                 }
             }
             bitmap
-        } catch (e: WriterException) {
-            e.printStackTrace()
-            null
-        }
+        } catch (e: Exception) { null }
     }
-
 }
