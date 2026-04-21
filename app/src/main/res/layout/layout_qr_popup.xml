@@ -50,11 +50,11 @@
                 android:layout_marginBottom="24dp"
                 android:background="@android:color/white"
                 android:padding="8dp">
+
                 <ImageView
+                    android:id="@+id/ivCodigoQR"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@android:drawable/ic_dialog_info"
-                    app:tint="@color/colorTextPrimary"/>
+                    android:layout_height="match_parent" />
             </FrameLayout>
 
             <com.google.android.material.button.MaterialButton
