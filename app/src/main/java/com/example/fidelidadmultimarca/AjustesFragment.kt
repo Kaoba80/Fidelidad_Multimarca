@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth // ¡No olvides esta importación!
+import com.google.firebase.auth.FirebaseAuth
 
 class AjustesFragment : Fragment() {
 
@@ -26,6 +26,25 @@ class AjustesFragment : Fragment() {
         val tvAvisoLegal = view.findViewById<TextView>(R.id.tvAvisoLegal)
         val tvFaq = view.findViewById<TextView>(R.id.tvFaq)
         val btnCerrarSesion = view.findViewById<Button>(R.id.btnCerrarSesion)
+
+        val tvNombreUsuario = view.findViewById<TextView>(R.id.tvNombreUsuario)
+        val tvEmailUsuario = view.findViewById<TextView>(R.id.tvEmailUsuario)
+
+        // --- CARGAR DATOS DEL USUARIO DESDE FIREBASE ---
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null && user.email != null) {
+            val emailCompleto = user.email!!
+            // Cogemos todo lo que hay antes del "@" para el nombre
+            val nombreExtraido = emailCompleto.substringBefore("@")
+
+            // Ponemos la primera letra en mayúscula para que quede mejor
+            tvNombreUsuario.text = nombreExtraido.replaceFirstChar { it.uppercase() }
+            tvEmailUsuario.text = emailCompleto
+        } else {
+            tvNombreUsuario.text = "Usuario Invitado"
+            tvEmailUsuario.text = "No hay correo"
+        }
+        // -----------------------------------------------
 
         // 1. Editar Perfil
         tvEditarPerfil.setOnClickListener {
@@ -54,20 +73,12 @@ class AjustesFragment : Fragment() {
                 .commit()
         }
 
-        // 5. LÓGICA DE CERRAR SESIÓN
+        // 5. CERRAR SESIÓN
         btnCerrarSesion.setOnClickListener {
-            // Cerramos sesión en Firebase
             FirebaseAuth.getInstance().signOut()
-
-            // Creamos el Intent para ir al Login
             val intent = Intent(requireContext(), LoginActivity::class.java)
-
-            // Estas flags son CRÍTICAS: borran todo el historial de pantallas
-            // para que el usuario no pueda volver al Dashboard pulsando el botón "atrás" del móvil
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
             startActivity(intent)
-
             Toast.makeText(requireContext(), "Sesión cerrada correctamente", Toast.LENGTH_SHORT).show()
         }
     }
